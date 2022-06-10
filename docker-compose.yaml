@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  mydb:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - qadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=s3cr3t=value
+
+  backend:
+    image: mysql
+    command: sleep 9999
+
+volumes:
+  qadb:
