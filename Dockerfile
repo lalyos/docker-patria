@@ -1,7 +1,6 @@
-FROM alpine:3.16.0
+FROM nginx:1.22.0-alpine
 
-RUN apk add curl nginx bash
-
+RUN apk add bash
 COPY start.sh /
 RUN chmod +x /start.sh
 ENV TITLE=Welcome
