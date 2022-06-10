@@ -1,0 +1,12 @@
+FROM debian:11.3
+
+RUN apt-get update -qq
+RUN apt-get install -y curl nginx
+
+COPY start.sh /
+RUN chmod +x /start.sh
+ENV TITLE=Welcome
+ENV COLOR=gray
+EXPOSE 80
+
+CMD [ "/start.sh" ]
